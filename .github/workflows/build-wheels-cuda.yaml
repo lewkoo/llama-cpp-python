@@ -34,6 +34,8 @@ jobs:
     needs: define_matrix
     runs-on: ${{ matrix.os }}
     strategy:
+      max-parallel: 4
+      fail-fast: true
       matrix: ${{ fromJSON(needs.define_matrix.outputs.matrix) }}
     defaults:
       run:
